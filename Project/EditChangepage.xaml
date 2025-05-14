@@ -59,7 +59,7 @@
                 </Grid>
             </Grid>
         </Grid>
-        <Button Margin="85,413,35,10" Content="Сохранить изменения" Foreground="White" Background="Black"></Button>
+        <Button Margin="85,413,35,10" Content="Сохранить изменения" x:Name="BtnBack" Click="BtnBack_Click"  Foreground="White" Background="Black"></Button>
         <Button Click="Button_Click" Margin="10,413,110,10" Content="Закрыть" Foreground="Black" Background="Red" Grid.Column="2"></Button>
     </Grid>
 </Page>
