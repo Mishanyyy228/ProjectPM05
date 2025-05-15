@@ -25,7 +25,6 @@ namespace Project
         public courierPage()
         {
             InitializeComponent();
-            DataGridCourier.ItemsSource = DeliveryServiceDBEntities2.GetContext().Orders.ToList();
             userId = IdOfUser.Value;
         }
 
