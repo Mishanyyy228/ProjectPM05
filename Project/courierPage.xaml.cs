@@ -21,15 +21,26 @@ namespace Project
     /// </summary>
     public partial class courierPage : Page
     {
+        private static int? userId;
         public courierPage()
         {
             InitializeComponent();
             DataGridCourier.ItemsSource = DeliveryServiceDBEntities2.GetContext().Orders.ToList();
+            userId = IdOfUser.Value;
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             Manager.MainFrame.Navigate(new EditOrder((sender as Button).DataContext as Order));
+        }
+
+        private void CourierPage_OnIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                DeliveryServiceDBEntities2.GetContext().ChangeTracker.Entries().ToList().ForEach(p=>p.Reload());
+                DataGridCourier.ItemsSource = DeliveryServiceDBEntities2.GetContext().Orders.ToList().Where(p=>p.CourierID==userId);   
+            }
         }
     }
 }

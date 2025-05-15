@@ -37,23 +37,25 @@ namespace Project
             if (loggedInUser != null)
             {
                 var post = loggedInUser.StatusId;
-                int? id = loggedInUser.RoleId;
+                int? idRole = loggedInUser.RoleId;
+
+                IdOfUser.Value = loggedInUser.UserId;
 
                 if (post==1)
                 {
                     MessageBox.Show("Обратитесь к менеджеру");
                 }
                 MessageBox.Show($"Пользователь успешно вошел: {loggedInUser.FirstName}");
-                // Manager.MainFrame.Navigate(new Inventory(post,id));
-                 if (id == 1)
+               
+                 if (idRole == 1)
                 {
                     Manager.MainFrame.Navigate(new ChangePageAdmin());
                 }
-                if (id == 2)
+                if (idRole == 2)
                 {
-                    Manager.MainFrame.Navigate(new ChangeOrders(id));
+                    Manager.MainFrame.Navigate(new ChangeOrders());
                 }
-                if (id == 3)
+                if (idRole == 3)
                 {
                     Manager.MainFrame.Navigate(new courierPage());
                 }

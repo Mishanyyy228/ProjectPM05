@@ -65,6 +65,7 @@
     <Compile Include="EditOrder.xaml.cs">
       <DependentUpon>EditOrder.xaml</DependentUpon>
     </Compile>
+    <Compile Include="IdOfUser.cs" />
     <Compile Include="Model\EmployeeShift.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

@@ -24,7 +24,7 @@ namespace Project
         {
             InitializeComponent();
             Manager.MainFrame = MainFrame;
-            Manager.MainFrame.Navigate(new courierPage());
+            Manager.MainFrame.Navigate(new ChangeOrders());
         }
     }
 }

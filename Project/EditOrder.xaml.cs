@@ -9,6 +9,7 @@ namespace Project
 {
     public partial class EditOrder : Page
     {
+        private static int? userId;
         private Order thisOrder;
         public EditOrder(Order selectedorder)
         {
@@ -18,6 +19,7 @@ namespace Project
                 thisOrder = selectedorder;
             }
             DataContext = thisOrder;
+            userId = IdOfUser.Value;
 
             CmbCourier.ItemsSource = DeliveryServiceDBEntities2.GetContext().Users.ToList();
             CmbPay.ItemsSource = DeliveryServiceDBEntities2.GetContext().PaymentMethods.ToList();
@@ -44,7 +46,7 @@ namespace Project
             {
                 DeliveryServiceDBEntities2.GetContext().SaveChanges();
                 MessageBox.Show("Заказ изменен", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
-                Manager.MainFrame.Navigate(new ChangeOrders(null));
+                Manager.MainFrame.Navigate(new ChangeOrders());
             }
             catch (Exception ex)
             {

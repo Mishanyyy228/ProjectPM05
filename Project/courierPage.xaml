@@ -8,7 +8,7 @@
       xmlns:fileModel="clr-namespace:Project.Model"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="courierPage">
+      Title="courierPage" IsVisibleChanged="CourierPage_OnIsVisibleChanged">
     <Page.Resources>
         <global:UnixTimestampConverter x:Key="unixTimestampConverter"/>
     </Page.Resources>

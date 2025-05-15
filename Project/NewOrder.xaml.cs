@@ -22,17 +22,17 @@ namespace Project
     public partial class NewOrder : Page
     {
         private static int idUser;
-        public NewOrder(int number)
+        public NewOrder()
         {
             InitializeComponent();
             CmbCourier.ItemsSource=DeliveryServiceDBEntities2.GetContext().Users.ToList().Where(p=>p.RoleId==3);
             CmbPay.ItemsSource = DeliveryServiceDBEntities2.GetContext().PaymentMethods.ToList();
-            idUser = number;
+            idUser = IdOfUser.Value;
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new ChangeOrders(null));
+            Manager.MainFrame.Navigate(new ChangeOrders());
         }
         
         private void BtnSave_OnClick(object sender, RoutedEventArgs e)
@@ -63,7 +63,7 @@ namespace Project
             {
                 DeliveryServiceDBEntities2.GetContext().SaveChanges();
                 MessageBox.Show("Успешно добавлен новый заказ", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
-                Manager.MainFrame.Navigate(new ChangeOrders(null));
+                Manager.MainFrame.Navigate(new ChangeOrders());
             }
             catch (Exception ex)
             {

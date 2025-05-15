@@ -29,6 +29,11 @@ namespace Project
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Manager.MainFrame.Navigate(new ChangePageAdmin());
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
             var selectedCourier = CmbEmployee.SelectedItem as User;
             DateTime selectedDateStart = DateStart.SelectedDate ?? DateTime.Now;
             DateTime selectedDateEnd = DateEnd.SelectedDate ?? DateTime.Now;
@@ -47,8 +52,6 @@ namespace Project
             try
             {
                 DeliveryServiceDBEntities2.GetContext().SaveChanges();
-                MessageBox.Show("Успешно добавлен новый заказ", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
-                Manager.MainFrame.Navigate(new ChangeOrders(null));
             }
             catch (Exception ex)
             {
@@ -68,19 +71,14 @@ namespace Project
                 try
                 {
                     DeliveryServiceDBEntities2.GetContext().SaveChanges();
-                    MessageBox.Show("Успешно добавлен новый заказ", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
-                    Manager.MainFrame.Navigate(new ChangeOrders(null));
+                    MessageBox.Show("Новая смена успешно добавлена", "Информация", MessageBoxButton.OK, MessageBoxImage.Information);
+                    Manager.MainFrame.Navigate(new ChangeOrders());
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                 }
             }
-        }
-
-        private void BtnBack_Click(object sender, RoutedEventArgs e)
-        {
-            Manager.MainFrame.Navigate(new ChangePageAdmin());
         }
     }
 }

@@ -22,18 +22,18 @@ namespace Project
     /// </summary>
     public partial class ChangeOrders : Page
     {
+        private static int? userID;
         //менеджер
-        public ChangeOrders(int? number)
+        public ChangeOrders()
         {
             InitializeComponent();
+            userID = IdOfUser.Value;
             
         }
-
-        public static int id;
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-           Manager.MainFrame.Navigate(new NewOrder(id));
+           Manager.MainFrame.Navigate(new NewOrder());
         }
 
         private void ChangeOrders_OnIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -41,7 +41,7 @@ namespace Project
             if (Visibility == Visibility.Visible)
             {
                 DeliveryServiceDBEntities2.GetContext().ChangeTracker.Entries().ToList().ForEach(p=>p.Reload());
-                GridSource.ItemsSource = DeliveryServiceDBEntities2.GetContext().Orders.ToList();   
+                GridSource.ItemsSource = DeliveryServiceDBEntities2.GetContext().Orders.ToList().Where(p=>p.ManagerID==userID);   
             }
         }
     }

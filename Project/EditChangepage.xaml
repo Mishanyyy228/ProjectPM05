@@ -40,7 +40,7 @@
                     <RowDefinition Height="67*"/>
                     <RowDefinition Height="190*"/>
                 </Grid.RowDefinitions>
-                <ComboBox Grid.Row="1" x:Name="CmbEmployee" Margin="3,0,3,0" Height="25" VerticalAlignment="Center" ></ComboBox>
+                <ComboBox Grid.Row="1" x:Name="CmbEmployee" Margin="3,0,3,0" Height="25" VerticalAlignment="Center" DisplayMemberPath="FirstName" ></ComboBox>
                 <TextBox x:Name="DescriptionTxt" Grid.Row="3" Margin="3"></TextBox>
             </Grid>
             <Grid>
