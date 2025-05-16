@@ -39,7 +39,7 @@
                     <DataGridTemplateColumn  Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                               <Button Click="ButtonBase_OnClick" Content="Редактировать"></Button>
+                               <Button Click="ButtonBase_OnClick" Content="Редактировать" Background="Black" Foreground="White"></Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

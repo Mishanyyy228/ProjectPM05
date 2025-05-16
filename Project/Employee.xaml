@@ -34,7 +34,7 @@
                 <DataGridTemplateColumn Header="Статус" Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Click="ButtonBase_OnClick" Content="Уволить"></Button>
+                            <Button Click="ButtonBase_OnClick" Background="Black" Foreground="White" Content="Уволить"></Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
